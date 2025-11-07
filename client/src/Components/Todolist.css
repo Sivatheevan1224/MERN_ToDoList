@@ -1,0 +1,104 @@
+.tasklist{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+    border-top: 2px rgba(0,0,0,0.1);
+    padding: 30px;
+}
+.tasklist ul{
+    list-style-type: none;
+    /* make the UL a vertical flex container so we can use gap */
+    display: flex;
+    flex-direction: column;
+    gap: 16px; /* space between items */
+    padding: 20px; /* inner padding for the white card */
+    width: 70%;
+    background: rgba(255,255,255,0.95); /* white card over bg image */
+    border-radius: 8px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    border: 1px solid rgba(0,0,0,0.06); /* light border around the card */
+ }
+.tasklist ul li{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: transparent; /* keep row transparent so the UL white shows */
+    font-size: 20px;
+    padding: 14px;
+    font-weight: bolder;
+    transition: .25s ease;
+    user-select: none;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 2px solid rgba(0,0,0,0.1);/* light border for each item */
+    box-shadow: 0 1px 0 rgba(0,0,0,0.02);
+}
+/* row hover */
+.tasklist ul li:hover{
+    /* darker moving hover for stronger visibility */
+    background: linear-gradient(90deg, rgba(0,0,0,0.08), rgba(0,0,0,0.14));
+    background-size: 200% 100%;
+    animation: running 1.2s linear infinite;
+    cursor: pointer;
+    transform: translateY(-2px);
+    border-color: rgba(0,0,0,0.12); /* emphasize border on hover */
+    box-shadow: 0 8px 16px rgba(0,0,0,0.06);
+}
+
+@keyframes running {
+    0%{ background-position: 0% 50%; }
+    100%{ background-position: 100% 50%; }
+}
+.tasklist ul li .isComplete{
+    visibility: visible;
+    color: rgb(24,233,146);
+    margin-right: 20px;
+}
+.tasklist ul li .checkicon{
+    visibility: hidden;
+    margin-right: 10px;
+}
+.tasklist ul li p.taskComplete{
+    text-decoration: line-through;
+    color: gray;
+}
+
+/* Ensure left-side contents (icon + text) are aligned in a row */
+.tasklist ul li > div:first-child{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Ensure action icons on the right are vertically centered */
+.tasklist ul li > div:last-child{
+    display: flex;
+    align-items: center;
+}
+
+/* Remove default paragraph margins so elements stay inline */
+.tasklist ul li p{
+    margin: 0;
+}
+.tasklist ul li .edit , .tasklist ul li .close{
+    margin-left: 10px;
+
+}
+.tasklist ul li .edit:hover{
+    background-color: rgba(7,94,233,0.12);
+    color: rgb(7,94,233);
+    border-radius: 4px;
+}
+.tasklist ul li .close:hover{
+    background-color: rgba(253,92,92,0.12);
+    color: rgb(253,92,92);
+    border-radius: 4px;
+}
+.tasklist ul li:nth-child(odd){
+    /* remove striping so the white card looks uniform; keep transparent rows */
+    background-color: transparent;
+
+}
+/* (duplicate hover rule removed) */

@@ -1,0 +1,33 @@
+/* App background using local bg1.jpg placed in src/Components */
+html, body, #root {
+	height: 100%;
+	margin: 0;
+}
+
+.App {
+	min-height: 100vh;
+	/* Use the bg1.jpg in the Components folder */
+	background-image: url('./Components/bg1.jpg');
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	display: flex;
+	flex-direction: column;
+}
+
+/* Optional: add a subtle overlay so content is readable on top of the image */
+.App::before {
+	content: '';
+	position: fixed;
+	inset: 0;
+	background: rgba(0,0,0,0.25);
+	pointer-events: none;
+}
+
+/* Make main content appear above the overlay */
+.App > * {
+	position: relative;
+	z-index: 1;
+}
+
