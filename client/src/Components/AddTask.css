@@ -1,0 +1,18 @@
+.addtask {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.addtask input[type=text]{
+    width: 50%;
+    height: 30px;
+    font-size: 20px;
+    border: none;
+    border-radius: 4px;
+    outline: none;
+    border-bottom: 2px solid rgb(22,24,148) ;
+    padding: 10px;
+    color: rgb(24,75,241);
+}
